@@ -10,6 +10,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 // view engine setup
+app.engine('pug', require('pug').__express)
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 
@@ -38,4 +39,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+//changement du port d'écoute
+app.listen(1805);
 module.exports = app;
